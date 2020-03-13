@@ -5,14 +5,13 @@ const position = 1;
 const file_path = 'db.json';
 
 router.get("/", function (req, res, next) {
+res.type("json");
   JSON.stringify(
-    res.send(
+    res.json(
       fs.readFileSync(file_path, {
         encoding: "utf-8"
       })
-    ),
-    null,
-    2
+    )
   );
 });
 router.post("/", function (req, res, next) {
